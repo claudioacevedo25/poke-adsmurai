@@ -6,7 +6,7 @@ type PokemonResponse = {
 }
 
 type Result = {
-  name: String
+  name: string
   url: string
 }
 

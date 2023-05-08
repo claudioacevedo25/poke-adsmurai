@@ -1,5 +1,3 @@
-import { PokemonByIdResponse } from "@/services/models/pokemon.model"
-
-type CardNameProps = PokemonByIdResponse
+type CardNameProps = { id: number; name: string }
 
 export type { CardNameProps }
