@@ -3,12 +3,12 @@ import { PokemonByIdResponse, PokemonResponse } from "../models/pokemon.model"
 import { BASE_URL } from "@/constants/urls.constants"
 
 const pokemonService = {
-  getPokemons: async (offset = 0) => {
+  getPokemons: async (limit: number, offset: number) => {
     const { data } = await api.get<PokemonResponse>(
-      `${BASE_URL}/pokemon/?limit=20&offset=${offset}`
+      `${BASE_URL}/pokemon/?limit=${limit}&offset=${offset}`
     )
 
-    return data.results
+    return data
   },
 
   getPokemonById: async (id: string) => {

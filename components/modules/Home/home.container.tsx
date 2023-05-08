@@ -8,12 +8,12 @@ const { getPokemons } = pokemonService
 
 export const HomeContainer = () => {
   const [isLoading, setIsLoading] = useState(false)
-  const [pokemons, setPokemons] = useState<PokemonResponse["results"]>([])
+  const [pokemons, setPokemons] = useState<PokemonResponse>()
 
-  const fetchPokemons = async () => {
+  const fetchPokemons = async (limit = 10, offset = 0) => {
     setIsLoading((prevState) => !prevState)
     try {
-      const response = await getPokemons()
+      const response = await getPokemons(limit, offset)
       setPokemons(response)
     } catch (error) {
       toast.error(
@@ -26,9 +26,14 @@ export const HomeContainer = () => {
   useEffect(() => {
     void fetchPokemons() // NTH abort Controller
   }, [])
+  if (!pokemons) return null
   return (
     <>
-      <HomeComponent pokemons={pokemons} isLoading={isLoading} />
+      <HomeComponent
+        pokemons={pokemons}
+        isLoading={isLoading}
+        fetchPokemons={fetchPokemons}
+      />
     </>
   )
 }
