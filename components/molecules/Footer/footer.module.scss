@@ -1,30 +1,23 @@
-.container,
-.container__social {
+$social-color: #4c596d;
+$social-size: 2.5rem;
+
+.container {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
   align-items: center;
   background-color: black;
-  color: white;
-  padding: 1rem;
-  border-radius: 1rem;
-  text-align: center;
-}
+  padding: 1.5rem 3rem;
+  background-color: #fff;
+  justify-content: space-between;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.08);
 
-.container__social svg {
-  color: white;
-  width: 3rem;
-  height: 3rem;
-}
+  .container__social svg {
+    color: $social-color;
+    width: $social-size;
+    height: $social-size;
+    padding: 0 0.5rem;
+  }
 
-.container__social {
-  flex-direction: row;
-}
-
-@media (min-width: 700px) {
-  .container,
   .container__social {
     flex-direction: row;
-    justify-content: space-around;
   }
 }

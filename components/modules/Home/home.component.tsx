@@ -1,10 +1,10 @@
+import { useState } from "react"
 import { CircularProgress, TablePagination } from "@mui/material"
 import { Toaster } from "react-hot-toast"
 import { CardName } from "@/components/molecules/CardName"
-import { HomeProps } from "./home.model"
 import { getPokemonId } from "@/helpers /getPokemonId"
+import { HomeProps } from "./home.model"
 import styles from "./home.module.scss"
-import { useState } from "react"
 
 export const HomeComponent = ({
   pokemons,
@@ -35,7 +35,7 @@ export const HomeComponent = ({
       <Toaster />
 
       <div className={styles.header}>POKEMONS</div>
-      {isLoading && <CircularProgress sx={{ margin: "0 auto" }} />}
+      {isLoading && <CircularProgress sx={{ margin: "0 auto" }} size={80} />}
       <section className={styles.cards__container}>
         {pokemons.results.length &&
           !isLoading &&

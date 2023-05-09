@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 const DetailPage = () => {
   const router = useRouter()
   const { id } = router.query
-  return <Detail id={Number(id)} />
+  return <Detail id={id} />
 }
 
 export default DetailPage

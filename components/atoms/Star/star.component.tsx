@@ -2,6 +2,7 @@ import { useMemo } from "react"
 import Rating from "@mui/material/Rating"
 import Box from "@mui/material/Box"
 import StarIcon from "@mui/icons-material/Star"
+import styles from "@/components/atoms/Star/star.module.scss"
 
 type Props = {
   value: number
@@ -17,15 +18,7 @@ export const StarComponent = ({ value, text }: Props) => {
     return Math.round(relative * 2) / 2
   }, [value])
   return (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        gap: "1rem",
-        textTransform: "capitalize",
-        flexWrap: "wrap",
-      }}
-    >
+    <Box className={styles.container}>
       <Rating
         name="hover-feedback"
         readOnly
