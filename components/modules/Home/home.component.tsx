@@ -18,8 +18,9 @@ export const HomeComponent = ({
     event: React.MouseEvent<HTMLButtonElement> | null,
     newPage: number
   ) => {
+    const offset = rowsPerPage * newPage
     setPage(newPage)
-    fetchPokemons(rowsPerPage, rowsPerPage * newPage)
+    fetchPokemons(rowsPerPage, offset)
   }
 
   const handleChangeRowsPerPage = (

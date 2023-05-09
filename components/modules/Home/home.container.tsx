@@ -24,8 +24,9 @@ export const HomeContainer = () => {
   }
 
   useEffect(() => {
-    void fetchPokemons() // NTH abort Controller
+    void fetchPokemons()
   }, [])
+
   if (!pokemons) return null
   return (
     <>

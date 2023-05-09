@@ -36,6 +36,8 @@ export const DetailContainer = ({ id }: Props) => {
     return (
       <CircularProgress size={80} sx={{ margin: "auto", display: "flex" }} />
     )
+
   if (!pokemon) return null
-  return <DetailComponent pokemon={pokemon} isLoading={isLoading} />
+
+  return <DetailComponent pokemon={pokemon} />
 }

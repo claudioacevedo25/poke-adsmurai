@@ -1,9 +1,7 @@
-import AppBar from "@mui/material/AppBar"
-import Toolbar from "@mui/material/Toolbar"
-import Container from "@mui/material/Container"
-import Pokemon from "public/images/pokemon.webp"
 import Image from "next/image"
 import Link from "next/link"
+import { AppBar, Toolbar, Container } from "@mui/material"
+import Pokemon from "public/images/pokemon.webp"
 import styles from "@/components/molecules/Header/header.module.scss"
 
 export const HeaderComponent = () => (

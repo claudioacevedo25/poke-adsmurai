@@ -6,11 +6,11 @@ import { PokemonByIdResponse } from "@/services/models/pokemon.model"
 import { CustomStar } from "@/components/atoms/Star"
 import Pokemon from "public/images/pokemon.webp"
 import styles from "./detail.module.scss"
+
 type Props = {
   pokemon: PokemonByIdResponse
-  isLoading: boolean
 }
-export const DetailComponent = ({ pokemon, isLoading }: Props) => {
+export const DetailComponent = ({ pokemon }: Props) => {
   const {
     name,
     sprites: {
@@ -26,6 +26,7 @@ export const DetailComponent = ({ pokemon, isLoading }: Props) => {
 
   const router = useRouter()
   const backToHome = () => void router.push("/")
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -73,7 +74,7 @@ export const DetailComponent = ({ pokemon, isLoading }: Props) => {
           <article className={styles.secondary__info}>
             <h4>Movimientos</h4>
 
-            <Typography variant="h5" className={styles.types__chip}>
+            <h6 className={styles.types__chip}>
               {moves?.map(({ move }, index) => {
                 if (index > 10) return
                 return (
@@ -84,12 +85,12 @@ export const DetailComponent = ({ pokemon, isLoading }: Props) => {
                   />
                 )
               })}
-            </Typography>
+            </h6>
           </article>
           <article className={styles.secondary__info}>
             <h4>Habilidades</h4>
 
-            <Typography variant="h5" className={styles.types__chip}>
+            <h6 className={styles.types__chip}>
               {abilities?.map(({ ability, slot }) => (
                 <Chip
                   key={`${slot}`}
@@ -97,7 +98,7 @@ export const DetailComponent = ({ pokemon, isLoading }: Props) => {
                   sx={{ color: "#9d1309" }}
                 />
               ))}
-            </Typography>
+            </h6>
           </article>
         </div>
       </section>

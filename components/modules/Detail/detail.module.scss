@@ -12,7 +12,7 @@
   .header {
     display: flex;
     gap: 1.5rem;
-    > svg {
+    svg {
       cursor: pointer;
       color: #3c50b5;
       padding-bottom: 0.5rem;
@@ -62,6 +62,7 @@
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
+  margin: 0;
 }
 .types__chip span {
   text-transform: capitalize;
