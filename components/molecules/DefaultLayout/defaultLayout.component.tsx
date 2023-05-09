@@ -1,8 +1,11 @@
 import Head from "next/head"
+import { Inter } from "next/font/google"
 import { Footer } from "../Footer"
 import { Header } from "../Header"
 import { DefaultLayoutProps } from "./defaultLayout.model"
 import styles from "./defaultLayout.module.scss"
+
+const inter = Inter({ subsets: ["latin"] })
 
 export const DefaultLayoutComponent = ({ children }: DefaultLayoutProps) => (
   <>
@@ -16,7 +19,7 @@ export const DefaultLayoutComponent = ({ children }: DefaultLayoutProps) => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Header />
-    <main className={styles.container}>{children}</main>
+    <main className={`${styles.container} ${inter.className}`}>{children}</main>
     <Footer />
   </>
 )

@@ -1,7 +1,6 @@
-import { TablePagination, Typography } from "@mui/material"
+import { CircularProgress, TablePagination } from "@mui/material"
 import { Toaster } from "react-hot-toast"
 import { CardName } from "@/components/molecules/CardName"
-import { CustomSkeleton } from "@/components/atoms/Skeleton"
 import { HomeProps } from "./home.model"
 import { getPokemonId } from "@/helpers /getPokemonId"
 import styles from "./home.module.scss"
@@ -35,31 +34,24 @@ export const HomeComponent = ({
     <div className={styles.container}>
       <Toaster />
 
-      <div className={styles.header}>
-        <Typography>LISTA DE POKEMONS</Typography>
-      </div>
-      <div className={styles.cards__container}>
-        {isLoading && <CustomSkeleton />}
-        {pokemons.results.length && !isLoading && (
-          <ul className={styles.cards__list}>
-            {pokemons.results.map(({ name, url }) => (
-              <li className={styles.card__pokemon} key={`${name}`}>
-                <CardName id={getPokemonId(url)} name={name} />
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-      <div className={styles.pagination}>
-        <TablePagination
-          component="div"
-          count={pokemons.count}
-          page={page}
-          onPageChange={handleChangePage}
-          rowsPerPage={rowsPerPage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
-      </div>
+      <div className={styles.header}>POKEMONS</div>
+      {isLoading && <CircularProgress sx={{ margin: "0 auto" }} />}
+      <section className={styles.cards__container}>
+        {pokemons.results.length &&
+          !isLoading &&
+          pokemons.results.map(({ name, url }) => (
+            <CardName id={getPokemonId(url)} name={name} key={`${name}`} />
+          ))}
+      </section>
+
+      <TablePagination
+        component="div"
+        count={pokemons.count}
+        page={page}
+        onPageChange={handleChangePage}
+        rowsPerPage={rowsPerPage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
     </div>
   )
 }

@@ -1,25 +1,22 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
   padding: 1rem 0 2rem;
+  color: #3c50b5;
+  font-size: 1.75rem;
+  line-height: 2.5rem;
+  font-weight: 700;
 }
 
-.cards__list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.cards__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  padding: 0;
-  list-style: none;
+  margin-top: 1.5rem;
+  min-height: 50vh;
 }
 
 .card__pokemon > div {
