@@ -1,9 +1,9 @@
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { Chip, Typography } from "@mui/material"
+import { Chip } from "@mui/material"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import { PokemonByIdResponse } from "@/services/models/pokemon.model"
-import { CustomStar } from "@/components/atoms/Star"
+import { CustomRating } from "@/components/atoms/Rating"
 import Pokemon from "public/images/pokemon.webp"
 import styles from "./detail.module.scss"
 
@@ -49,9 +49,9 @@ export const DetailComponent = ({ pokemon }: Props) => {
             />
           </div>
           <article className={styles.primary__info}>
-            <section className={styles.star__container}>
+            <section className={styles.rating}>
               {stats?.map(({ base_stat, stat }) => (
-                <CustomStar
+                <CustomRating
                   key={`${base_stat} - ${stat.name}`}
                   text={stat?.name}
                   value={base_stat}
@@ -59,10 +59,10 @@ export const DetailComponent = ({ pokemon }: Props) => {
               ))}
             </section>
             <section className={styles.pokemon__characteristic}>
-              <span>{`Peso: ${weight} libras`}</span>
-              <span>{`Altura: ${height} pies`}</span>
+              <span>{`Weight: ${weight} pounds`}</span>
+              <span>{`Height: ${height} feet`}</span>
               <span className={styles.types__chip}>
-                {`Categoria: `}
+                {`Category: `}
                 {types?.map(({ type, slot }) => (
                   <Chip size="small" key={slot} label={type?.name} />
                 ))}
@@ -72,8 +72,7 @@ export const DetailComponent = ({ pokemon }: Props) => {
         </div>
         <div className={styles.chips}>
           <article className={styles.secondary__info}>
-            <h4>Movimientos</h4>
-
+            <h4>Moves</h4>
             <h6 className={styles.types__chip}>
               {moves?.map(({ move }, index) => {
                 if (index > 10) return
@@ -88,8 +87,7 @@ export const DetailComponent = ({ pokemon }: Props) => {
             </h6>
           </article>
           <article className={styles.secondary__info}>
-            <h4>Habilidades</h4>
-
+            <h4>Abilities</h4>
             <h6 className={styles.types__chip}>
               {abilities?.map(({ ability, slot }) => (
                 <Chip

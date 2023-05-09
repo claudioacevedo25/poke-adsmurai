@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { PokemonResponse } from "@/services/models/pokemon.model"
-import { HomeComponent } from "./home.component"
 import { pokemonService } from "@/services/modules/pokemon.service"
+import { HomeComponent } from "./home.component"
 
 const { getPokemons } = pokemonService
 

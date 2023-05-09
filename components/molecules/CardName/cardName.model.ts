@@ -1,3 +1,3 @@
-type CardNameProps = { id: number; name: string }
+type CardNameProps = { name: string; url: string }
 
 export type { CardNameProps }

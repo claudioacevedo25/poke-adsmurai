@@ -37,11 +37,15 @@ export const HomeComponent = ({
 
       <div className={styles.header}>POKEMONS</div>
       {isLoading && <CircularProgress sx={{ margin: "0 auto" }} size={80} />}
-      <section className={styles.cards__container}>
+      <section className={styles.cards}>
         {pokemons.results.length &&
           !isLoading &&
           pokemons.results.map(({ name, url }) => (
-            <CardName id={getPokemonId(url)} name={name} key={`${name}`} />
+            <CardName
+              url={`/pokemon/${getPokemonId(url)}`}
+              name={name}
+              key={`${name}`}
+            />
           ))}
       </section>
 

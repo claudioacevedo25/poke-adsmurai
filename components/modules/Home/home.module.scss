@@ -1,36 +1,20 @@
 .container {
   display: flex;
   flex-direction: column;
-}
 
-.header {
-  padding: 1rem 0 2rem;
-  color: #3c50b5;
-  font-size: 1.75rem;
-  line-height: 2.5rem;
-  font-weight: 700;
-}
-
-.cards__container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-  min-height: 50vh;
-}
-
-.card__pokemon > div {
-  padding: 1rem;
-}
-
-@media (max-width: 700px) {
-  .container {
-    padding: 1rem;
-  }
-}
-@media (min-width: 980px) {
   .header {
-    flex-direction: row;
-    justify-content: space-around;
+    padding: 1rem 0 2rem;
+    color: #3c50b5;
+    font-size: 1.75rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    min-height: 50vh;
   }
 }

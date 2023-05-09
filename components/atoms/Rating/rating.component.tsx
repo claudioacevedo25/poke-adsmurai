@@ -2,7 +2,7 @@ import { useMemo } from "react"
 import Rating from "@mui/material/Rating"
 import Box from "@mui/material/Box"
 import StarIcon from "@mui/icons-material/Star"
-import styles from "@/components/atoms/Star/star.module.scss"
+import styles from "@/components/atoms/Rating/rating.module.scss"
 
 type Props = {
   value: number
@@ -11,7 +11,7 @@ type Props = {
 const max = 5.0
 const min = 1.0
 
-export const StarComponent = ({ value, text }: Props) => {
+export const RatingComponent = ({ value, text }: Props) => {
   const toRelativeNumber = useMemo(() => {
     const proportion = (value - 1) / 99
     const relative = proportion * (max - min) + min
