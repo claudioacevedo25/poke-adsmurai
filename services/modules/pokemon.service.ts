@@ -11,7 +11,7 @@ const pokemonService = {
     return data
   },
 
-  getPokemonById: async (id: string) => {
+  getPokemonById: async (id: number) => {
     const { data } = await api.get<PokemonByIdResponse>(
       `${BASE_URL}/pokemon/${id}`
     )
