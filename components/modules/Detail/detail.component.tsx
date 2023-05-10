@@ -34,6 +34,7 @@ export const DetailComponent = ({ pokemon }: Props) => {
           onClick={backToHome}
           sx={{ cursor: "pointer" }}
           fontSize="large"
+          id="back-arrow"
         />
         <h1 className={styles.title}>{name}</h1>
       </div>
