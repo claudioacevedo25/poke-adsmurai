@@ -1,9 +1,10 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from "cypress"
 
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {},
     supportFile: false,
+    baseUrl: "http://localhost:3000",
   },
 
   component: {
@@ -12,4 +13,4 @@ export default defineConfig({
       bundler: "webpack",
     },
   },
-});
+})

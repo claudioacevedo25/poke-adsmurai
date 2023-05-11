@@ -6,6 +6,8 @@ import { getPokemonId } from "@/helpers /getPokemonId"
 import { HomeProps } from "./home.model"
 import styles from "./home.module.scss"
 
+const TITLE = "POKEMONS"
+
 export const HomeComponent = ({
   pokemons,
   isLoading,
@@ -31,23 +33,24 @@ export const HomeComponent = ({
     fetchPokemons(limit)
     setPage(0)
   }
+
   return (
     <div className={styles.container}>
       <Toaster />
 
-      <div className={styles.header}>POKEMONS</div>
+      <div className={styles.header}>{TITLE}</div>
       {isLoading && <CircularProgress sx={{ margin: "0 auto" }} size={80} />}
-      <section className={styles.cards} id="home-cards">
-        {pokemons.results.length &&
-          !isLoading &&
-          pokemons.results.map(({ name, url }) => (
+      {pokemons.results.length && !isLoading && (
+        <section className={styles.cards} id="home-cards">
+          {pokemons.results.map(({ name, url }) => (
             <CardName
               url={`/pokemon/${getPokemonId(url)}`}
               name={name}
               key={`${name}`}
             />
           ))}
-      </section>
+        </section>
+      )}
 
       <TablePagination
         component="div"

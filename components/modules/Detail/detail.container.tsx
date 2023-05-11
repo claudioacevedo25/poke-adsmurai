@@ -3,6 +3,7 @@ import toast from "react-hot-toast"
 import { CircularProgress } from "@mui/material"
 import { PokemonByIdResponse } from "@/services/models/pokemon.model"
 import { pokemonService } from "@/services/modules/pokemon.service"
+import { GENERIC_ERROR_MESSAGE } from "@/constants/messages"
 import { DetailComponent } from "./detail.component"
 
 const { getPokemonById } = pokemonService
@@ -23,9 +24,7 @@ export const DetailContainer = ({ id }: Props) => {
         const response = await getPokemonById(Number(id))
         setPokemon(response)
       } catch (error) {
-        toast.error(
-          "Ocurrió un error inesperado, intente nuevamente en unos minutos"
-        )
+        toast.error(GENERIC_ERROR_MESSAGE)
       }
       setIsLoading((prevState) => !prevState)
     }

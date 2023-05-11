@@ -17,6 +17,7 @@ export const RatingComponent = ({ value, text }: Props) => {
     const relative = proportion * (max - min) + min
     return Math.round(relative * 2) / 2
   }, [value])
+
   return (
     <Box className={styles.container}>
       <Rating

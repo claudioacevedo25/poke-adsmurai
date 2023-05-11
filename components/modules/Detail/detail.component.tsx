@@ -4,8 +4,19 @@ import { Chip } from "@mui/material"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack"
 import { PokemonByIdResponse } from "@/services/models/pokemon.model"
 import { CustomRating } from "@/components/atoms/Rating"
+import { DETAIL_TEXTS } from "@/constants/messages"
 import Pokemon from "public/images/pokemon.webp"
 import styles from "./detail.module.scss"
+
+const {
+  abilities: abilitiesTitle,
+  category,
+  feet,
+  height: heightTitle,
+  moves: movesTitle,
+  pounds,
+  weight: weightTitle,
+} = DETAIL_TEXTS
 
 type Props = {
   pokemon: PokemonByIdResponse
@@ -60,10 +71,10 @@ export const DetailComponent = ({ pokemon }: Props) => {
               ))}
             </section>
             <section className={styles.pokemon__characteristic}>
-              <span>{`Weight: ${weight} pounds`}</span>
-              <span>{`Height: ${height} feet`}</span>
+              <span>{`${weightTitle} ${weight} ${pounds}`}</span>
+              <span>{`${heightTitle} ${height} ${feet}`}</span>
               <span className={styles.types__chip}>
-                {`Category: `}
+                {category}
                 {types?.map(({ type, slot }) => (
                   <Chip size="small" key={slot} label={type?.name} />
                 ))}
@@ -73,10 +84,10 @@ export const DetailComponent = ({ pokemon }: Props) => {
         </div>
         <div className={styles.chips}>
           <article className={styles.secondary__info}>
-            <h4>Moves</h4>
+            <h4>{movesTitle}</h4>
             <h6 className={styles.types__chip}>
               {moves?.map(({ move }, index) => {
-                if (index > 10) return
+                if (index > 20) return
                 return (
                   <Chip
                     key={`${move.name} - ${index}`}
@@ -88,7 +99,7 @@ export const DetailComponent = ({ pokemon }: Props) => {
             </h6>
           </article>
           <article className={styles.secondary__info}>
-            <h4>Abilities</h4>
+            <h4>{abilitiesTitle}</h4>
             <h6 className={styles.types__chip}>
               {abilities?.map(({ ability, slot }) => (
                 <Chip
